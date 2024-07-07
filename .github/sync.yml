@@ -1,0 +1,11 @@
+group:
+  - files:
+    - source: content/Plugin.md
+      dest: README.md
+    repos: |
+      Enveloppe/obsidian-enveloppe
+  - files:
+    - source: content/wikis/Quartz.md
+      dest: README.md
+    repos: |
+      Enveloppe/Enveloppe-Quartz
