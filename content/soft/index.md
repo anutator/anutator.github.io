@@ -3,7 +3,7 @@ tags:
   - links
   - soft
 share: "true"
-title: Ссылки на полезный софт
+title: soft
 ---
 # Ссылки на полезный софт
 ## Mac
