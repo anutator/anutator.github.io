@@ -7,7 +7,7 @@ title: Поиск файлов локально и удаленно
 ## Нерекурсивный поиск файлов локально в заданном каталоге/каталогах. with_fileglob.
 Ищет все файлы в одном каталоге, совпадающие с паттерном, нерекурсивно. Вызывает библиотеку glob Python-а.
 - Шаблоны только для поисков файлов, нельзя искать каталоги или большие пути к каталогам.
-- Поиск ведется на контроллере Ansible, т.е. на самой машине, где запускается плейбук.  Для итерации списка файлов на удаленной ноде использовать модуль [ansible.builtin.find](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/find_module.html#ansible-collections-ansible-builtin-find-module).    
+- Поиск ведется на контроллере Ansible, т.е. на самой машине, где запускается плейбук.  Для итерации списка файлов на удаленной ноде использовать модуль [ansible.builtin.find](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/find_module.html#ansible-collections-ansible-builtin-find-module).
 - Список найденных файлов будет перечислен через запятую, либо будет пустой список, если файлы не найдены. Для реального списка добавить `wantlist=True` в строку поиска lookup.
 
 ```yaml
@@ -55,13 +55,11 @@ ansible-playbook playbook-fileglob.yml --connection=local
 ```
 
 Полная роль [fileglobtest](https://github.com/fabianlee/blogcode/tree/master/ansible/roles/fileglobtest).
-
 ### Поиск в нескольких известных каталогах. with_fileglob
 
-В переменную with_fileglob можно передать список каталогов
+В  опцию `with_fileglob` можно передать список каталогов:
 
-```yaml
-defaults/main.yml
+```yaml title="defaults/main.yml"
 ---
 work_dir:
 - ../templates/*.j2
@@ -213,6 +211,3 @@ services:
     state: absent
   loop: "{{ fileToDelete | json_query('results[*].files') | flatten }}"
 ```
-
-
-
