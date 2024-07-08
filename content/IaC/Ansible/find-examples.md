@@ -4,7 +4,7 @@ tags:
 share: "true"
 title: Поиск файлов локально и удаленно
 ---
-## Нерекурсивный поиск файлов локально в заданном каталоге/каталогах. with_fileglob.
+## Нерекурсивный поиск файлов локально в заданных каталогах с with_fileglob.
 Ищет все файлы в одном каталоге, совпадающие с паттерном, нерекурсивно. Вызывает библиотеку glob Python-а.
 - Шаблоны только для поисков файлов, нельзя искать каталоги или большие пути к каталогам.
 - Поиск ведется на контроллере Ansible, т.е. на самой машине, где запускается плейбук.  Для итерации списка файлов на удаленной ноде использовать модуль [ansible.builtin.find](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/find_module.html#ansible-collections-ansible-builtin-find-module).
@@ -38,7 +38,7 @@ As a quick example, if you are in a role and want every script in the templates 
    with_fileglob: "{{role_path}}/templates/*.sh"
 ```
 
-If your templates have an additional suffix tacked on (such as ‘.j2’), then you can use the jinja2 `regex_replace` to strip it off like below.
+Если у шаблонов есть дополнительный суффикс (такой как `.j2`), можно использовать jinja2 `regex_replace` для обрезания суффикса:
 
 ```yaml
  - name: create file out of every jinja2 template
@@ -48,16 +48,15 @@ If your templates have an additional suffix tacked on (such as ‘.j2’), then 
    with_fileglob: "{{role_path}}/templates/*.j2"
 ```
 
-Here is a link to a playbook using the role, which can be invoked locally for testing:
+Ссылка на плейбук, использующий роль. Для тестированиявыполняется локально:
 
 ```bash
 ansible-playbook playbook-fileglob.yml --connection=local
 ```
 
 Полная роль [fileglobtest](https://github.com/fabianlee/blogcode/tree/master/ansible/roles/fileglobtest).
-### Поиск в нескольких известных каталогах. with_fileglob
-
-В  опцию `with_fileglob` можно передать список каталогов:
+### Поиск в нескольких известных каталогах с with_fileglob
+В  опцию `with_fileglob` можно передать список каталогов, например здесь через переменную `work_dir`:
 
 ```yaml title="defaults/main.yml"
 ---
@@ -76,7 +75,7 @@ work_dir:
 Здесь добавить пример через `set_fact`.
 
 ## Поиск файлов на удаленном хосте
-### Поиск в одном каталоге. find.
+### Поиск в одном каталоге через find.
 К сожалению, `with_fileglob` работает только с файлами хосте, который является контроллером Ansible. Он не будет составлять список файлов из удаленного каталога, даже если вы используете что-то типа модуля [copy](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/copy_module.html) с параметром `remote_source: true`.
 
 В таком случае можно использовать модуль [find](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/find_module.html).  Соберем список картинок из каталога `/tmp` на удаленном хосте. В переменной `image_list `содержится словарь со списком файлов в `.files`.  И затем внутри этого списка в “`.path`” содержится полный путь файла. Копируем все найденные картинки в веб каталог `/var/www/html`.
