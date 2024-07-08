@@ -24,7 +24,6 @@ export const sharedPageComponents: SharedLayout = {
     ),
     Component.MobileOnly(Component.PageTitle()),
     Component.MobileOnly(Component.Spacer()),
-    Component.Search(),
     Component.Darkmode(),
   ],
   footer: Component.Footer({
@@ -45,6 +44,7 @@ export const defaultContentPageLayout: PageLayout = {
   ],
   left: [
     Component.DesktopOnly(Component.PageTitle()),
+    Component.Search(),
     Component.DesktopOnly(
       Component.ExplorerBurger({
         folderClickBehavior: "link",
@@ -57,7 +57,6 @@ export const defaultContentPageLayout: PageLayout = {
   ],
   right: [
     Component.TableOfContents(),
-    Component.DesktopOnly(Component.Backlinks()),
   ],
 }
 
