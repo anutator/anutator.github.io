@@ -1,7 +1,9 @@
 ---
 share: "true"
-title: main
+title: О сайте
 ---
+Если нажать на название раздела, появится общая информация по разделу (если я создавала такое описание) либо список статей раздела.
+
 Материал в разделах:
 **Gitlab** — всё что касается работы с кодом: техники работы с git, работа и пайплайны в Gitlab (рассматривается только бесплатный вариант Gitlab), Gitlab-раннеры, Github Actions.
 **IaC** (инфраструктура как код) — всё, что касается автоматизации разворачивания и настройки инфраструктуры: [Ansible](https://docs.ansible.com/ansible-core/2.16/index.html), [Terraform](https://www.terraform.io/), [OpenTofu](https://opentofu.org/) (форк Terraform), [Atlantis](https://www.runatlantis.io/), [Terragrunt](https://terragrunt.gruntwork.io/).
