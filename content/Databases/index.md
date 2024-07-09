@@ -13,7 +13,13 @@ share: "true"
 - [Percona XtraBackup](https://github.com/percona/percona-xtrabackup) — open-source hot backup utility for MySQL - based servers that doesn’t lock your database during the backup. Percona XtraBackup 8.0 can back up data from InnoDB, XtraDB, MyISAM, and MyRocks tables on MySQL 8.0 servers as well as Percona Server for MySQL with XtraDB, Percona Server for MySQL 8.0, and Percona XtraDB Cluster 8.0. [Документация](https://docs.percona.com/percona-xtrabackup/8.0/index.html). Другой софт для бд от [Percona](https://www.percona.com/mysql/software).
 - [Percona Monitoring and Management](https://www.percona.com/software/database-tools/percona-monitoring-and-management) (PMM) is an open source database observability, monitoring, and management tool for MySQL, PostgreSQL, and MongoDB. With PMM, you can spot critical performance issues faster, understand the root cause of incidents better, and troubleshoot them more efficiently.
 
-Программы и веб-интерфейсы для администрирования БД:
+[Percona Operator for MySQL](https://github.com/percona/percona-xtradb-cluster-operator) based on Percona XtraDB Cluster
+
+```bash
+git clone -b rebrain-event https://github.com/percona/percona-xtradb-cluster-operator.git
+```
+
+## Программы и веб-интерфейсы для администрирования БД
 - [MySQL Workbench](https://www.mysql.com/products/workbench/) is a unified visual tool for database architects, developers, and DBAs. MySQL Workbench provides data modeling, SQL development, and comprehensive administration tools for server configuration, user administration, backup, and much more. MySQL Workbench is available on Windows, Linux and Mac OS X.
 - [Dbeaver Community](https://dbeaver.io/) is a free cross-platform database tool for developers, database administrators, analysts, and everyone working with data. It supports all popular SQL databases like MySQL, MariaDB, PostgreSQL, SQLite, Apache Family, and more.
 - [HeidiSQL](https://www.heidisql.com/) — free software, and has the aim to be easy to learn. "Heidi" lets you see and edit data and structures from computers running one of the database systems MariaDB, MySQL, Microsoft SQL, PostgreSQL and SQLite. Invented in 2002 by Ansgar, HeidiSQL belongs to the most popular tools for MariaDB and MySQL worldwide.
