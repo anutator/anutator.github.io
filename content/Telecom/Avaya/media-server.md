@@ -60,9 +60,9 @@ installUpdage      # без аргументов
 Как получить лог, который можно скопировать на свой компьютер через WinSCP.
 ```bash
 $ sysTool -e
-Generated file: sng-nv-abk3-ucams3-event-log.zip
+Generated file: abk3-ucams3-event-log.zip
 
-[cust@sng-nv-abk3-ucams3 pub]$ ls
+[cust@abk3-ucams3 pub]$ ls
 MediaServer_System_Update_7.8.0.16_2018.09.14.iso
 MediaServer_Update_7.8.0.410_2018.09.12.iso
 sng-nv-abk3-ucams3-event-log.zip
@@ -76,12 +76,12 @@ sng-nv-abk3-ucams3-event-log.zip
 После установки *System Status→ Element Status*,  в выпадающем меню *More Actions* выбрать *Unlock→ Confirm*.
 ## Пароль по умолчанию AMS 8
 Вход в веб-интерфейс https://ipAddress:8443/emlogin
-Username: `admin`  
-Password: `Admin123$`
+Username: `admin`
+Password: `SecretPass$`
 ## Настройка
 *System Configuration→ Network Settings→ IP Interface Assignment*
 
-В разделе IPv4 Interfaces для Signaling, Media и Cluster выбрать `10.8.13.8 [eth0]`, для OAM `0.0.0.0` All Network Interfaces. *Save→ Confirm*. Для вступления в силу требуется перезагрузка медиасервера.
+В разделе IPv4 Interfaces для Signaling, Media и Cluster выбрать `10.8.13.9 [eth0]`, для OAM `0.0.0.0` All Network Interfaces. *Save→ Confirm*. Для вступления в силу требуется перезагрузка медиасервера.
 
 *Licensing →  General Settings* вместо `localhost` установить `10.8.12.147`.
 ## Установка сертификатов
@@ -91,17 +91,17 @@ Password: `Admin123$`
 Во время Enrollment
 
 **Certificate Fields**
-Certificate friendly name:  sng-nv-abk3-ucams3_sng-nv-abk1-ucasmgr1_signed
+Certificate friendly name:  abk3-ucams3_abk1-ucasmgr1_signed
 Key bit length:
 Signature algorithm:  SHA256
-Organization:  ROSNEFT
+Organization:  MYCOMPANY
 Organization unit: MGMT
-Common name: sng-nv-abk3-ucams3.smn.rosneft.ru
+Common name: abk3-ucams3.smn.mycompany.ru
 Country (ISO 3166): RU
 State/Province (full name): KhMAO
-City/Locality: Nizhnevartovsk
-Include Subject Alternative Name with IP address  10.8.13.8
-Include Subject Alternative Name with FQDN    sng-nv-abk3-ucams3.smn.rosneft.ru
+City/Locality: Gorod
+Include Subject Alternative Name with IP address  10.8.13.9
+Include Subject Alternative Name with FQDN    abk3-ucams3.smn.mycompany.ru
 
 **Trust Management**
 Provide the enrollment password that the media server must use to acquire a System Manager-signed certificate from System Manager Trust Management.
@@ -128,27 +128,27 @@ The administrative names and descriptions of the media server cluster and elemen
 Cluster administrative name: AAMS3
 Cluster administrative description: Media Server 3
 Server Name Server Role Element Administrative Name Element Administrative Description
-sng-nv-abk3-ucams3 Primary AAMS3 Media Server 3
+abk3-ucams3 Primary AAMS3 Media Server 3
 
 **System Manager Configuration**
-Fully qualified domain name (FQDN) of System Manager server: sng-nv-abk1-ucasmgr1.smn.rosneft.ru
+Fully qualified domain name (FQDN) of System Manager server: abk1-ucasmgr1.smn.mycompany.ru
 System Manager server port: 443
-System Manager registration username: adminnn@smn.rosneft.ru
+System Manager registration username: admin@smn.mycompany.ru
 System Manager registration password: тут_пароль
 
 **Certificate Setup**
 The certificate fields for a new System Manager-signed certificate are listed below.
 
-Certificate friendly name: sng-nv-abk3-ucams3_sng-nv-abk1-ucasmgr1_signed
+Certificate friendly name: abk3-ucams3_abk1-ucasmgr1_signed
 Key bit length: 2048
 Signature algorithm: SHA256
-Organization: ROSNEFT
+Organization: MYCOMPANY
 Organization unit: MGMT
-Common name: sng-nv-abk3-ucams3.smn.rosneft.ru
+Common name: abk3-ucams3.smn.mycompany.ru
 Country (ISO 3166): RU
 State/Province (full name): KhMAO
-City/Locality: Nizhnevartovsk
-Subject Alternative Name: 10.8.13.8, sng-nv-abk3-ucams3.smn.rosneft.ru
+City/Locality: Gorod
+Subject Alternative Name: 10.8.13.9, abk3-ucams3.smn.mycompany.ru
 System Manager trust management enrollment password: тут_пароль
 
 Нажать *Enroll*. По окончании процесса появится сообщение:
