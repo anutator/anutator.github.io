@@ -34,12 +34,12 @@ passwd: all authentication tokens updated successfully.
  You have entered [ eth0 ]. Is this correct? (y|n) y
 
  Enter the host name of the CMS system 
- ENTER> mrc-krl15-ucacms1
- You have entered [ mrc-krl15-ucacms1 ]. Is this correct? (y|n) y
+ ENTER> ucacms1
+ You have entered [ ucacms1 ]. Is this correct? (y|n) y
 
  Enter the domain name of the CMS system
- ENTER> rtrn.ru
- You have entered [ rtrn.ru ]. Is this correct? (y|n) y
+ ENTER> mycompany.ru
+ You have entered [ mycompany.ru ]. Is this correct? (y|n) y
 
  Enter the IP address of the network interface
  ENTER> 172.21.103.17
@@ -60,8 +60,8 @@ passwd: all authentication tokens updated successfully.
  ENTER>  просто жмем Enter
  You have entered [  ]. Is this correct? (y|n) y
   Interface: eth0
-  CMS Hostname: mrc-krl15-ucacms1
-  Domainname: rtrn.ru
+  CMS Hostname: ucacms1
+  Domainname: mycompany.ru
   CMS IP address: 172.21.103.17
   Netmask: 255.255.255.192
   Gateway: 172.21.103.1
@@ -93,7 +93,7 @@ Tue Mar 20 13:47:32 EDT 2018 /cms/toolsbin/netconfig successfully finished
 Пример успешного выполнения скрита. Достаточно один раз ввести **y** и наблюдать за текстом на экране:
 
 ```
-(mrc-krl15-ucacms1)-(root)=# /opt/informix/bin/dbinit.sh
+(ucacms1)-(root)=# /opt/informix/bin/dbinit.sh
 WARNING: /opt/informix/bin/dbinit.sh will initialize CMS database.
 WARNING: All data will be lost!!!
 Do you want to continue? (y or n) : y
@@ -200,7 +200,7 @@ Wed Mar 21 10:11:45 EDT 2018 Creating CMS database successfully finished
 Заходим в меню cmssvc. Пункты при успешной установке должны отобразиться сразу без ожидания. Для выбора пунктов меню нажимаем соответствующий номер.
 
 ```console {6}
-(mrc-krl15-ucacms1)-(root)=# cmssvc
+(ucacms1)-(root)=# cmssvc
 
  Avaya(TM) Call Management System Services Menu
 
@@ -273,7 +273,7 @@ Enter choice (1-2): 1
 Проверка `tail /cms/install/logdir/admin.log`
 
 ```bash title="/cms/install/logdir/admin.log"
-(mrc-krl15-ucacms1)-(root)=# cat /cms/install/logdir/admin.log
+(ucacms1)-(root)=# cat /cms/install/logdir/admin.log
 Fri Jan 26 00:53:58 EST 2018 Modifying VPCLASS in /opt/informix/etc/onconfig.cms
 Fri Jan 26 00:53:58 EST 2018 Changed SHMTOTAL setting in
    /opt/informix/etc/onconfig.cms from 0 to 13996705
@@ -305,7 +305,7 @@ UUID="80a36e4f-d63e-4921-a370-66e41c60feda"
 ONBOOT="yes"
 BOOTPROTO="static"
 HWADDR="00:50:56:8C:4F:44"
-DOMAIN="rtrn.ru"
+DOMAIN="mcompamy.ru"
 IPADDR="172.21.103.17"
 NETMASK="255.255.255.192"
 GATEWAY="172.21.103.1"
@@ -331,7 +331,7 @@ shutdown --r now                # Linux
 После установки CMS даем доступ сотруднику Avaya для активации лицензии. Пришлют LMI ссылку, дающую доступ к моему компьютеру. Я захожу через PuTTY в CMS. Далее делает сотрудник Avaya.
 
 ```console {7,19}
-(mrc-krl15-ucacms1)-(root)=# cmssvc
+(ucacms1)-(root)=# cmssvc
 
  Avaya(TM) Call Management System Services Menu
 
@@ -407,7 +407,7 @@ Enter choice (1-11) or q to quit: 1
 Настройка CMS для линка с Communication Manager. Cmssvc→ swsetup (пункт 7) или cmsadm→ acd_create
 
 ```shellsession {12}
-(mrc-krl15-ucacms1)-(root)=# cmssvc
+(ucacms1)-(root)=# cmssvc
 
  Avaya(TM) Call Management System Services Menu
 
@@ -446,7 +446,7 @@ Enter choice (1-8): (default: 1) 1
 .......................
 Customer CMS data successfully initialized.
 
-Enter a name for this UNIX system (up to 64 characters): (default: mrc-krl15-ucacms1)
+Enter a name for this UNIX system (up to 64 characters): (default: ucacms1)
 
 Select the type of backup device you are using
    1) Tape
@@ -477,7 +477,7 @@ Enter the remote port assigned to switch (1-64): 1
 Select the transport to the switch
    1) TCP/IP
 Enter choice (1-1): 1
-Enter switch host name or IP Address: mrc-krl15-ucacm
+Enter switch host name or IP Address: ucacm
 Enter switch TCP port number (5001-5999): (default: 5001)
 Number of splits/skills (0-8000): (default: 350) 10
 Total split/skill members, summed over all splits/skills (0-480): (default: 480)
@@ -509,7 +509,7 @@ Switch administration for acd 1:
         Central office disconnect supervision: y
         Local port: 1
         Remote port: 1
-        Link: TCP/IP mrc-krl15-ucacm 5001
+        Link: TCP/IP ucacm 5001
 
 WARNING: Once you confirm this new switch administration, it may
 not be possible to restore the previous administration without loss of data.
@@ -526,7 +526,7 @@ and verify/modify your existing free space.
 Включение CMS
 
 ```shellsession
-(mrc-krl15-ucacms1)-(root)=# cmssvc
+(ucacms1)-(root)=# cmssvc
 
  Avaya(TM) Call Management System Services Menu
 
@@ -559,13 +559,13 @@ Please wait for initialization
 Включение веб-интерфейса по порту 8443
 
 ```
-(mrc-krl15-ucacms1)-(root)=# cmsweb status
+(ucacms1)-(root)=# cmsweb status
 cmsweb is stopped
 
-(mrc-krl15-ucacms1)-(root)=# cmsweb start
+(ucacms1)-(root)=# cmsweb start
 starting cmsweb ...
 
-(mrc-krl15-ucacms1)-(root)=# cmsweb status
+(ucacms1)-(root)=# cmsweb status
 cmsweb is running
 ```
 
@@ -672,16 +672,16 @@ drwxrwxr-x. 2 root cms   4096 Jan 19 22:37 cvsup
 
 ```bash title="/var/log/mesages"
 # tail -f /var/log/messages
-Apr  9 21:48:21 mrc-krl15-ucacms1 login[4187]: FAILED LOGIN 2 FROM localhost FOR , User not known to the underlying authentication module
-Apr  9 21:48:22 mrc-krl15-ucacms1 pam_asg[4187]: Login for [] - rhost[localhost],tty[pts/3]
-Apr  9 21:48:22 mrc-krl15-ucacms1 asglib[4187]: GetKey, Before calling DecKey: enc->key:O▒C#001, enckey:
-Apr  9 21:48:22 mrc-krl15-ucacms1 pam_asg[4187]: Login  not an ASG login
-Apr  9 21:48:25 mrc-krl15-ucacms1 login[4187]: FAILED LOGIN 3 FROM localhost FOR , User not known to the underlying authentication module
-Apr  9 21:48:27 mrc-krl15-ucacms1 pam_asg[4187]: Login for [] - rhost[localhost],tty[pts/3]
-Apr  9 21:48:27 mrc-krl15-ucacms1 asglib[4187]: GetKey, Before calling DecKey: enc->key:O▒C#001, enckey:
-Apr  9 21:48:27 mrc-krl15-ucacms1 pam_asg[4187]: Login  not an ASG login
-Apr  9 21:48:31 mrc-krl15-ucacms1 login[4187]: FAILED LOGIN SESSION FROM localhost FOR , User not known to the underlying authentication module
-Apr  9 21:48:31 mrc-krl15-ucacms1 xinetd[2169]: EXIT: telnet status=0 pid=4186 duration=80(sec)
+Apr  9 21:48:21 ucacms1 login[4187]: FAILED LOGIN 2 FROM localhost FOR , User not known to the underlying authentication module
+Apr  9 21:48:22 ucacms1 pam_asg[4187]: Login for [] - rhost[localhost],tty[pts/3]
+Apr  9 21:48:22 ucacms1 asglib[4187]: GetKey, Before calling DecKey: enc->key:O▒C#001, enckey:
+Apr  9 21:48:22 ucacms1 pam_asg[4187]: Login  not an ASG login
+Apr  9 21:48:25 ucacms1 login[4187]: FAILED LOGIN 3 FROM localhost FOR , User not known to the underlying authentication module
+Apr  9 21:48:27 ucacms1 pam_asg[4187]: Login for [] - rhost[localhost],tty[pts/3]
+Apr  9 21:48:27 ucacms1 asglib[4187]: GetKey, Before calling DecKey: enc->key:O▒C#001, enckey:
+Apr  9 21:48:27 ucacms1 pam_asg[4187]: Login  not an ASG login
+Apr  9 21:48:31 ucacms1 login[4187]: FAILED LOGIN SESSION FROM localhost FOR , User not known to the underlying authentication module
+Apr  9 21:48:31 ucacms1 xinetd[2169]: EXIT: telnet status=0 pid=4186 duration=80(sec)
 ```
 
 Диагностика веб-интерфейса CMSWeb
@@ -734,12 +734,12 @@ When Supervisor restarts these files will be recreated and will continue to log 
 # vi/.forward
 myname@mycompany.ru
 
-(mrc-krl15-ucacms1)-(root)=# ls -la /.forward
+(ucacms1)-(root)=# ls -la /.forward
 -rw-r--r--. 1 root root 17 Apr  9 21:00 /.forward
 
-(mrc-krl15-ucacms1)-(root)=# chmod 600 /.forward
+(ucacms1)-(root)=# chmod 600 /.forward
 
-(mrc-krl15-ucacms1)-(root)=# ls -la /.forward
+(ucacms1)-(root)=# ls -la /.forward
 -rw-------. 1 root root 17 Apr  9 21:00 /.forward
 ```
 ## Время. Часовой пояс и NTP.
@@ -767,13 +767,13 @@ Wed Mar 21 10:40:21 EDT 2018
 Проверяем доступные часовые пояса вообще и пояса в Европе:
 
 ```bash
-(mrc-krl15-ucacms1)-(root)=# ls /usr/share/zoneinfo
+(ucacms1)-(root)=# ls /usr/share/zoneinfo
 Africa      Chile    GB         Indian       Mexico    posixrules  Universal
 .....
 Canada      Etc      HST        Libya        Portugal  tzdata.zi
 CET         Europe   Iceland    MET          posix     UCT
 
-(mrc-krl15-ucacms1)-(root)=# ls /usr/share/zoneinfo/Europe
+(ucacms1)-(root)=# ls /usr/share/zoneinfo/Europe
 Amsterdam   Busingen     Kiev        Moscow      Saratov     Vatican
 Andorra     Chisinau     Kirov       Nicosia     Simferopol  Vienna
 ...
@@ -853,7 +853,7 @@ unsynchronised
 Формат DataStore – VMFS6 (рекомендуется вероятно к предыдущей версии VMFS5).
 
 ```
-(mrc-krl15-ucacms1)-(root)=# sfdisk -lq
+(ucacms1)-(root)=# sfdisk -lq
 
 Disk /dev/sda: 78325 cylinders, 255 heads, 63 sectors/track
 Warning: extended partition does not start at a cylinder boundary.
@@ -873,7 +873,7 @@ Units = cylinders of 8225280 bytes, blocks of 1024 bytes, counting from 0
 /dev/sda10     14662+  16221-   1559-  12517372+  83  Linux
 /dev/sda11     16221+  78325-  62104- 498847744   83  Linux
 
-(mrc-krl15-ucacms1)-(root)=# df -Th | grep sda
+(ucacms1)-(root)=# df -Th | grep sda
 /dev/sda2      ext4   9.8G  1.3G  8.0G  14% /
 /dev/sda1      ext4   546M   38M  480M   8% /boot
 /dev/sda3      ext4   9.8G  340M  8.9G   4% /cms
@@ -883,13 +883,13 @@ Units = cylinders of 8225280 bytes, blocks of 1024 bytes, counting from 0
 /dev/sda9      ext4    16G  263M   15G   2% /tmp
 /dev/sda8      ext4    26G  111M   25G   1% /var
 
-(mrc-krl15-ucacms1)-(root)=# rpm -qa | grep sysstat
+(ucacms1)-(root)=# rpm -qa | grep sysstat
 sysstat-9.0.4-33.el6.x86_64
 ```
 
 Можно редактировать.
 ```bash
-(mrc-krl15-ucacms1)-(root)=# cat /etc/cron.d/sysstat
+(ucacms1)-(root)=# cat /etc/cron.d/sysstat
 # Run system activity accounting tool every 10 minutes
 */10 * * * * root /usr/lib64/sa/sa1 1 1
 # 0 * * * * root /usr/lib64/sa/sa1 600 6 &
@@ -900,7 +900,7 @@ sysstat-9.0.4-33.el6.x86_64
 Посмотреть список текущих сервисов:
 
 ```
-(mrc-krl15-ucacms1)-(root)=# chkconfig --list
+(ucacms1)-(root)=# chkconfig --list
 abrt-ccpp       0:off   1:off   2:off   3:on    4:off   5:on    6:off
 abrtd           0:off   1:off   2:off   3:on    4:off   5:on    6:off
 acpid           0:off   1:off   2:on    3:on    4:on    5:on    6:off
@@ -992,23 +992,23 @@ copying the AFS file
 Ошибка входа:
 
 ``` title="/var/log/messages"
-(mrc-krl15-ucacms1)-(root)=# tail /var/log/messages
-Apr  6 14:29:04 mrc-krl15-ucacms1 pam_asg[30279]: Login cms not an ASG login
-Apr  6 14:29:08 mrc-krl15-ucacms1 xinetd[2206]: START: telnet pid=30296 from=::1
-Apr  6 14:29:10 mrc-krl15-ucacms1 pam_asg[30297]: Login for [cms] - rhost[localhost],tty[pts/2]
-Apr  6 14:29:10 mrc-krl15-ucacms1 asglib[30297]: GetKey, Before calling DecKey: enc->key:#177i#001, enckey:
-Apr  6 14:29:10 mrc-krl15-ucacms1 pam_asg[30297]: Login cms not an ASG login
-Apr  6 14:29:10 mrc-krl15-ucacms1  -- cms[30297]: LOGIN ON pts/2 BY cms FROM localhost
-Apr  6 14:30:53 mrc-krl15-ucacms1 xinetd[2206]: EXIT: telnet status=0 pid=30296 duration=105(sec)
-Apr  6 14:31:14 mrc-krl15-ucacms1 pam_asg[30437]: Login for [cms] - rhost[10.0.45.51],tty[ssh]
-Apr  6 14:31:14 mrc-krl15-ucacms1 asglib[30437]: GetKey, Before calling DecKey: enc->key: \#007#177, enckey:
-Apr  6 14:31:14 mrc-krl15-ucacms1 pam_asg[30437]: Login cms not an ASG login
+(ucacms1)-(root)=# tail /var/log/messages
+Apr  6 14:29:04 ucacms1 pam_asg[30279]: Login cms not an ASG login
+Apr  6 14:29:08 ucacms1 xinetd[2206]: START: telnet pid=30296 from=::1
+Apr  6 14:29:10 ucacms1 pam_asg[30297]: Login for [cms] - rhost[localhost],tty[pts/2]
+Apr  6 14:29:10 ucacms1 asglib[30297]: GetKey, Before calling DecKey: enc->key:#177i#001, enckey:
+Apr  6 14:29:10 ucacms1 pam_asg[30297]: Login cms not an ASG login
+Apr  6 14:29:10 ucacms1  -- cms[30297]: LOGIN ON pts/2 BY cms FROM localhost
+Apr  6 14:30:53 ucacms1 xinetd[2206]: EXIT: telnet status=0 pid=30296 duration=105(sec)
+Apr  6 14:31:14 ucacms1 pam_asg[30437]: Login for [cms] - rhost[10.0.45.51],tty[ssh]
+Apr  6 14:31:14 ucacms1 asglib[30437]: GetKey, Before calling DecKey: enc->key: \#007#177, enckey:
+Apr  6 14:31:14 ucacms1 pam_asg[30437]: Login cms not an ASG login
 ```
 
 Проверка текущей версии CMS:
 
 ```bash
-(mrc-krl15-ucacms1)-(root)=# rpm -q cms
+(ucacms1)-(root)=# rpm -q cms
 cms-R18.0.2.0-ma.k.x86_64
 ```
 ## Нельзя залогиниться в CMS Supervisor или TE, но Putty работает
@@ -1095,13 +1095,13 @@ openssh-daemon (pid  2158) is running...
 Проверить работу telnet в Linux
 
 ```shellsession
-(mrc-krl15-ucacms1)-(root)=# telnet localhost
+(ucacms1)-(root)=# telnet localhost
 Trying ::1...
 Connected to localhost.
 Escape character is '^]'.
 Red Hat Enterprise Linux Server release 6.9 (Santiago)
 Kernel 2.6.32-696.18.7.el6.x86_64 on an x86_64
-mrc-krl15-ucacms1 login:
+ucacms1 login:
 ```
 
 Проверить */etc/xinetd.d/telnet*:
@@ -1239,7 +1239,7 @@ root                0
 Кто какие оболочки использует, видно в */etc/passwd*. У нас для логинов **cms** (это логин администратора) и **cmssvc** (это сервисный логин) по умолчанию используется оболочка Korn Shell, хоть это не Solaris, а RHEL. Т.е. залогиниться в CMS Supervisor они могут только в ручном режиме.
 
 ```shellsession title="/etc/passwd" {6,7}
-(mrc-krl15-ucacms1)-(root)=# cat /etc/passwd
+(ucacms1)-(root)=# cat /etc/passwd
 root:x:0:0:root:/root:/bin/bash
 ....
 tcpdump:x:72:72::/:/sbin/nologin
@@ -1649,7 +1649,7 @@ ACD=$acd and DISPOSITION=3 and  ((((ROW_DATE = [Дата начала:] and ROW_
 Отобразим информацию по текущему использованию базы данных Informix:
 
 ```
-(mrc-krl15-ucacms1)-(root)=# onstat -d
+(ucacms1)-(root)=# onstat -d
 IBM Informix Dynamic Server Version 12.10.FC2 -- On-Line -- Up 111 days 21:58:24 -- 2294960 Kbytes
 
 Dbspaces
@@ -1929,7 +1929,7 @@ df -kl
 Ввести номер пункта меню, который отвечает за бэкап (номер 3). Выбрать тип Other (номер 2)
 
 ```shellsession {8}
- (mrc-krl15-ucacms1)-(root)=# cmsadm
+ (ucacms1)-(root)=# cmsadm
 
  Avaya(TM) Call Management System Administration Menu
 
