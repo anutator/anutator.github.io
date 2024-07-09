@@ -34,7 +34,7 @@ share: "true"
 ## Список приветствий
 Все имена приветствий должны соответствовать именам залитых файлов. Расширение файлов `.wav` в именах приветствий не указывается.
 
-``` title="li anno"
+```console title="li anno" {1}
 list announcement
                            ANNOUNCEMENTS/AUDIO SOURCES
 Announcement                                                            Num of
@@ -58,7 +58,7 @@ Extension             Type       Name                        Source     Sources
 
 **G1** — это объединенный пул из четырех медиашлюзов, т.е. любое приветствие должно существовать на каждом медиашлюзе, хранится на виртуальной плате с порядковым номером 9.
 
-```console title="disp audio 1"
+```console title="disp audio 1" {1}
 display audio-group 1                                           Page   1 of   5
                                 AUDIO GROUP 1
 
@@ -76,7 +76,7 @@ AUDIO SOURCE LOCATION
 При удалении приветствий предварительно надо удалять ссылку на него из вектора (можно заменить его номер на номер другого приветствия).
 Как узнать, в каком векторе используется приветствие:
 
-``` title="li usa ext 71015"
+```console title="li usa ext 71015" {1}
 list usage extension 71015
 
                              LIST USAGE REPORT
@@ -91,7 +91,7 @@ Vector               Vector Number        5        Step 3
 
 Временно заменяю в 5 векторе `71015` на `71012`.
 
-``` title="ch ve 5" {11}
+```console title="ch ve 5" {1,11}
 change vector 5                                                 Page   1 of   6
                                   CALL VECTOR
 
@@ -156,7 +156,7 @@ Multimedia? y      Attendant Vectoring? n    Meet-me Conf? n           Lock? n
 
 Теперь можно спокойно номер `71015` занести в вектор 5.
 
-``` title="ch ve 5" {11}
+```console title="ch ve 5" {1,11}
 change vector 5                                                 Page   1 of   6
                                   CALL VECTOR
 
