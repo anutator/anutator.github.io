@@ -13,7 +13,7 @@ share: "true"
 root> cat /etc/shadow
 …..
 insights:!!:17669::::::
-admin:$1$FiO.sG..$m7Hqu/q8kdSMj/.iBseJa/:17737::99999:::99999:
+admin:$1$FiO.sG..$m7Hqw/q8kdSDj/.iBseJa/:17737::99999:::99999:
 smgr::17674:1:60:7:::
 nortel:!!:17674:1:60:7:::
 csadmin:!!:17760:0:99999:7:::
@@ -163,7 +163,7 @@ find / -type f -size +100M -exec ls -lh {} \; 2>> /dev/null
 В истории команд после изменений через ASA автоматически должен залогиниться специально выделенный логин для smgr, но этого не происходит. Ниже меняем два раза station 21107, логинимся в ASA как `cmadmin`. Далее в истории ничего не появляется.
 
 ```
-list history                                                           Page   1
+list history                                          Page   1
 
                                   HISTORY
           Date of Loaded Translation: 12:45pm Fri Nov 16, 2018
@@ -374,7 +374,7 @@ This Script will reboot the VM
 Do you want to continue ? .. (Yes/No)
 Yes
 
-Broadcast message from root@mrc-krl15-ucasmgr2.rtrn.ru (pts/0) (Sat Mar  2 12:33:28 2019):
+Broadcast message from root@ucasmgr2.mycompany.ru (pts/0) (Sat Mar  2 12:33:28 2019):
 
 Rebooting the VM
 PolicyKit daemon disconnected from the bus.
@@ -385,7 +385,7 @@ Connection closing...Socket close.
 
 Connection closed by foreign host.
 
-Disconnected from remote host(mrc-krl15-ucasmgr2) at 12:35:46.
+Disconnected from remote host(ucasmgr2) at 12:35:46.
 ```
 
 В правом верхнем углу нажать на иконку и выбрать "About". Убедиться, что отображается следующая информация о версии:

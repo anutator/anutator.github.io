@@ -8,11 +8,8 @@ title: Очистка старых пайплайнов Gitlab
 curl --header "PRIVATE-TOKEN: <your_access_token>" --request "DELETE" "https://gitlab.example.com/api/v4/projects/номер_проекта/pipelines/номер_пайплайна"
 ```
 
-{==
-
-Я нашла [скрипт](https://gist.github.com/chrishoerl), который автоматически удаляет пайплайны. Но он имеет ограничение: обрабатывает максимум 100 проектов за 1 раз и удаляет максимум 100 пайплайнов, т.е. скрипт надо перезапускать. Я доработала скрипт [**cleanup-gitlab-pipelines.sh**](https://gist.github.com/anutator/7f24f83db93bf7cc5d159de4fabd77a7#file-cleanup-gitlab-pipelines-sh)
-
-==}
+> [!info]
+> Я нашла [скрипт](https://gist.github.com/chrishoerl), который автоматически удаляет пайплайны. Но он имеет ограничение: обрабатывает максимум 100 проектов за 1 раз и удаляет максимум 100 пайплайнов, т.е. скрипт надо перезапускать. Я доработала скрипт [**cleanup-gitlab-pipelines.sh**](https://gist.github.com/anutator/7f24f83db93bf7cc5d159de4fabd77a7#file-cleanup-gitlab-pipelines-sh)
 
 Cкрипт очистит все старые пайплайны. Надо ввести:
 - `GITLABURL` — путь к своему GitLab
