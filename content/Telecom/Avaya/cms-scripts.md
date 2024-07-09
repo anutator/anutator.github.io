@@ -24,7 +24,7 @@ ndd -set /dev/tcp tcp_conn_req_max_q 1024
 Содержимое каталога */opt/informix/bin* (почти всё — двоичные файлы)
 
 ```bash
-(mrc-krl15-ucacms1)-(root)=# ls /opt/informix/bin
+(ucacms1)-(root)=# ls /opt/informix/bin
 about_files    esqlvers             infoshp          onedpu         onspaces
 about.html     filtersym.sh         infxmsg          oninit         onsrvapd
 archecker      finderr              instterm         onload         onstat
@@ -47,7 +47,7 @@ drdaprint      ifxpipecat           onedcu           onsnmp
 Содержимое каталога */cms/toolsbin*
 
 ```bash
-(mrc-krl15-ucacms1)-(root)=# ls /cms/toolsbin
+(ucacms1)-(root)=# ls /cms/toolsbin
 age_pw                   chktunes   db_util    lib        parsecv         setSimLink  tsdatemod
 age_pw_exclude_template  clint      diff_rtdb  link_perf  perfcmd.sh      showtime    ts_mod
 age_pw_template          cmsu       fakepc     maintlock  PerfHistLogger  slem        ttlist
@@ -2837,13 +2837,13 @@ unset TERMCAP;
 
 Cписок переменных окружения — env
 ```bash
-(mrc-krl15-ucacms1)-(root)=# env
+(ucacms1)-(root)=# env
 SPI6=/cms/pbx/acd6/spi.err
 SPI7=/cms/pbx/acd7/spi.err
 SPI4=/cms/pbx/acd4/spi.err
 SPI5=/cms/pbx/acd5/spi.err
 DBPATH=/cms/db/inf
-HOSTNAME=mrc-krl15-ucacms1
+HOSTNAME=ucacms1
 SPI2=/cms/pbx/acd2/spi.err
 SELINUX_ROLE_REQUESTED=
 SPI3=/cms/pbx/acd3/spi.err
@@ -2867,7 +2867,7 @@ PATH=/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/
 PWD=/root
 INFORMIXCONTIME=2
 LANG=en_US.UTF-8
-PS1=\n(mrc-krl15-ucacms1)-(root)=#
+PS1=\n(ucacms1)-(root)=#
 SELINUX_LEVEL_REQUESTED=
 DB_LOCALE=en_us.utf8
 HISTCONTROL=ignoredups
