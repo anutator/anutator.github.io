@@ -74,24 +74,12 @@ kexp --host 0.0.0.0 --port 8090
 - [Argo CD](https://argoproj.github.io/argo-cd/)
 - [Razee](https://razee.io)
 - [Fleet](https://fleet.rancher.io/)
-
-Можно взять k3s или k0s, добавить kubevirt и это в огромном подавляющем числе упростит и первоначальную настройку и расширит рабочие нагрузки. А в случае роста узлов и подов, можно делать мультикластерные решения и это в любом случае потребует затрат специалистов для обслуживания инфраструктуры. Сейчас нет никаких преимуществ в новых проектах использовать что-то отличное от k8s.
-База данных в Кубернетес.k3s отличается разве что тем, что там все упаковано в один бинарник — coredns, local path provisioner, api server, metrics server, nginx, etcd и все остальное. Т.е. сложность системы никак не меняется. При этом за счет того, что проект это все таки другой, глюков своих у них хватает. Мы k3s пробовали, наелись всякой ерунды с ним (чето вроде с конфигами по дефолту была фигня, что нельзя было перенастроить все эти встроенные компоненты. etcd не работал), что подумали ну его нафиг. Лучше кубспреем разольем ванильный кубер. Теже яйца только в профиль
-
-```bash
-git clone -b rebrain-event https://github.com/percona/percona-xtradb-cluster-operator.git
-```
-
 ## backstage
 Как упростить и улучшить жизнь разработчиков в инфраструктурах с Kubernetes (да и не только).
-
-Кто-то может тут сразу поднять вопрос: "Нужно ли разработчику знать Kubernetes?" - об этом у меня был отдельный пост (https://t.me/k8security/213) и в рамках нее упоминается статья "Maximizing Developer Effectiveness (https://martinfowler.com/articles/developer-effectiveness.html)". Из которой вы и могли уже узнать о таком замечательном проекте от команды Spotify как Backstage (https://backstage.io/).
-
+[Maximizing Developer Effectiveness](https://martinfowler.com/articles/developer-effectiveness.html) — тут о [Backstage](https://backstage.io/).
 [Backstage](https://github.com/backstage/backstage) — OpenSource портал для разработчиков с системой [плагинов](https://backstage.io/plugins), позволяющий обозревать всю информацию о системе в одном месте! И да эта система уже понимает, что такое [Kubernetes](https://backstage.io/blog/2021/01/12/new-backstage-feature-kubernetes-for-service-owners) !
 
-Проект находится в [CNCF Sandbox](https://www.cncf.io/projects/backstage/), у него более [50](https://backstage.io/blog/2021/09/30/50-public-adopters) крупных публичных компаний пользователей. Я знаю и российские компании, которые используют данное решение.
-
-Прямо online можно поиграть с решением на данном [demo](https://demo.backstage.io/) стенде.
+Проект находится в [CNCF Sandbox](https://www.cncf.io/projects/backstage/), у него более [50](https://backstage.io/blog/2021/09/30/50-public-adopters) крупных публичных компаний пользователей. Я знаю и российские компании, которые используют данное решение. online [demo](https://demo.backstage.io/) стенд.
 
 ## Ссылки
 Kubernetes [README](https://kubereadme.com/) ([Github](https://github.com/chris-short/kubernetesreadme.com)).
@@ -116,6 +104,10 @@ https://github.com/itaysk/kubectl-neat —  Clean up Kuberntes yaml and json out
 https://github.com/2gis/k8s-handle — Easy CI/CD for Kubernetes clusters with python and jinja2 - 2gis/k8s-handle
 https://ingressbuilder.jetstack.io/ — [Ingresses](https://kubernetes.io/docs/concepts/services-networking/ingress/ "Kubernetes Ingress") are Kubernetes resources used to direct HTTP and HTTPS traffic to your cluster services. In order to correctly use an ingress resource a dedicated [ingress-controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/ "Kubernetes Ingress Controllers") must be present and running in the host cluster. Ingress Builder allows users to select any annotation from the list of available controllers, to add to the ingress manifest.
 
+Можно взять k3s или k0s, добавить kubevirt  — это упростит и первоначальную настройку и расширит рабочие нагрузки. В случае роста узлов и подов можно делать мультикластерные решения. Сейчас нет никаких преимуществ в новых проектах использовать что-то отличное от k8s.
+База данных в Кубернетес.k3s отличается разве что тем, что там все упаковано в один бинарник — coredns, local path provisioner, api server, metrics server, nginx, etcd и все остальное. Т.е. сложность системы никак не меняется. Есть свои глюки. k3s пробовали (с конфигами по дефолту была фигня, что нельзя было перенастроить все эти встроенные компоненты, etcd не работал), что подумали ну его нафиг. Использовать k8s (ванильный Kubernetes) и разворачивать его через kubespray.
+
+
 Хранение секретов:
 [Hashicorp Vault](https://learn.hashicorp.com/vault)
 [AppRole](https://developer.hashicorp.com/vault/docs/auth/approle) для авторизации на виртуальных машинах.
@@ -126,7 +118,7 @@ https://ingressbuilder.jetstack.io/ — [Ingresses](https://kubernetes.io/docs/c
 https://reconshell.com/best-kubernetes-tools-for-managing-devops-projects/
 [kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/)
 
-Storage:
+## Storage
 - [Kadalu](https://github.com/kadalu/kadalu/tree/devel) is a project to provide Persistent Storage in container ecosystem (like kubernetes, openshift, RKE, etc etc). Kadalu operator deploys CSI pods, and **gluster storage** pods as per the config. You would get your PVs served through APIs implemented in CSI.
 - [Kubernetes Data Mobility with Cloud Volumes ONTAP](https://cloud.netapp.com/blog/cvo-blg-kubernetes-data-mobility-with-cloud-volumes-ontap)
 - [Scaling Kubernetes Persistent Volumes with Cloud Volumes ONTAP](https://cloud.netapp.com/blog/cvo-blg-scaling-kubernetes-persistent-volumes-with-cloud-volumes-ontap)
