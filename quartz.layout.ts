@@ -24,6 +24,7 @@ export const sharedPageComponents: SharedLayout = {
     ),
     Component.MobileOnly(Component.PageTitle()),
     Component.MobileOnly(Component.Spacer()),
+    Component.Search(),
     Component.Darkmode(),
   ],
   footer: Component.Footer({
@@ -44,16 +45,14 @@ export const defaultContentPageLayout: PageLayout = {
   ],
   left: [
     Component.DesktopOnly(Component.PageTitle()),
-    Component.Search(),
-    Component.DesktopOnly(
-      Component.ExplorerBurger({
-        folderClickBehavior: "link",
-        folderDefaultState: "collapsed",
-        useSavedState: true,
-        title: "",
-        iconSettings: iconsOptions,
-      }),
-    ),
+    Component.DesktopOnly(Component.ExplorerBurger({
+       folderClickBehavior: "link",
+       folderDefaultState: "collapsed",
+       useSavedState: true,
+       title: "",
+       iconSettings: iconsOptions,
+    }),
+   ),
   ],
   right: [
     Component.TableOfContents(),
@@ -66,3 +65,4 @@ export const defaultListPageLayout: PageLayout = {
   left: defaultContentPageLayout.left,
   right: [],
 }
+
