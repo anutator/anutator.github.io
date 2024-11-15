@@ -11,14 +11,12 @@ curl --header "PRIVATE-TOKEN: <your_access_token>" --request "DELETE" "https://g
 > [!info]
 > Я нашла [скрипт](https://gist.github.com/chrishoerl), который автоматически удаляет пайплайны. Но он имеет ограничение: обрабатывает максимум 100 проектов за 1 раз и удаляет максимум 100 пайплайнов, т.е. скрипт надо перезапускать. Я доработала скрипт [**cleanup-gitlab-pipelines.sh**](https://gist.github.com/anutator/7f24f83db93bf7cc5d159de4fabd77a7#file-cleanup-gitlab-pipelines-sh)
 
-Cкрипт очистит все старые пайплайны. Надо ввести:
+Скрипт очистит все старые пайплайны. Переменные:
 - `GITLABURL` — путь к своему GitLab
 - `TOKEN` — токен с правами API чтения и записи
 - `DELETEBEFORE` — дату, ДО которой удалить все старые пайплайны.
 
 Предварительно установить утилиту jq.
-
-Токен для gitlab.investpalata.tech glpat-xGAXxWvx8vYSgU_neQL_
 
 ```sh title="cleanup-gitlab-pipelines.sh"
 #!/bin/bash
@@ -93,4 +91,4 @@ done
 ```
 
 
-%%🔐β DmDoWAb8n/1xXSMab3OUpcav4MP5TIp/40CmRKRqvCm2d2VWMj/pHBZJIXcgc+X3mm+/HKz+dxFC0EloiDllBb2/u7yyBtbmXOF7w++iUl2Na2IQVr1/yufCAabdd4SswmdC2Dj+z3YpuXtsRgeTP9dSrTZmwA== 🔐%%
+🔐β UDIVq4oUds0+tu60uSEE4fvJXgnMboH0gu5s6EkNuSGKGl3+rctxu47EkpPzP1jl5xxwsb2Q6HGIK/FXw6Iv+bgJt34czn+WHeeWzSNanbMA61DmIs0TMyUH7zkD1AIAFwJJe+TQKCpHhqojmAv9F1voRkhG0kPwaL+cR/TAtAGc8qUjTLdnd/D/WH136WXRJ3rMEBxgJLMz7y195cllQZjFTUeO/c2lQHI= 🔐
